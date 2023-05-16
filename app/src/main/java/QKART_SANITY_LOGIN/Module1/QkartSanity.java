@@ -3,25 +3,26 @@
  */
 package QKART_SANITY_LOGIN.Module1;
 
-import java.io.File;
+// import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+// import java.util.Arrays;
+// import java.util.List;
+// import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+// import org.apache.commons.io.FileUtils;
+// import org.openqa.selenium.By;
+// import org.openqa.selenium.OutputType;
+// import org.openqa.selenium.TakesScreenshot;
+// import org.openqa.selenium.WebDriver;
+// import org.openqa.selenium.WebElement;
+// import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+// import org.openqa.selenium.support.ui.ExpectedConditions;
+// import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class QkartSanity {
 
@@ -56,7 +57,7 @@ public class QkartSanity {
         registration.navigateToRegisterPage();
         status = registration.registerUser("testUser", "abc@123", true);
         if (!status) {
-             logStatus("TestCase 1", "Test Case Pass. User Registration Pass", "PASS");
+            logStatus("TestCase 1", "Test Case Pass. User Registration Pass", "FAIL");
             logStatus("End TestCase", "Test Case 1: Verify user Registration : ", status ? "PASS" : "FAIL");
 
             // Return False as the test case Fails
@@ -104,14 +105,17 @@ public class QkartSanity {
 
         }
 
+
+
         // Save the last generated username
         lastGeneratedUserName = registration.lastGeneratedUsername;
 
         // Visit the Registration page and try to register using the previously
         // registered user's credentials
         registration.navigateToRegisterPage();
-        status = registration.registerUser(lastGeneratedUserName, "abc@123", true);
+        status = registration.registerUser(lastGeneratedUserName, "abc@123", false );
 
+        Thread.sleep(2000);
         // If status is true, then registration succeeded, else registration has
         // failed. In this case registration failure means Success
         logStatus("End TestCase", "Test Case 2: Verify user Registration : ", status ? "PASS" : "FAIL");
