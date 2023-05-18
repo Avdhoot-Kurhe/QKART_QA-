@@ -73,3 +73,4 @@ public class Register {
         return this.driver.getCurrentUrl().endsWith("/login");
     }
 }
+
