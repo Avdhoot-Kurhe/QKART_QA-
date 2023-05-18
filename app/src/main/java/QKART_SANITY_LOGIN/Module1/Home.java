@@ -51,7 +51,7 @@ public class Home {
 
             WebDriverWait wait = new WebDriverWait(driver,30);
             wait.until(ExpectedConditions.or(ExpectedConditions.textToBePresentInElementLocated(By.className("css-yg30ev6"), product),
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div[2]/div/h4"))));
+            ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/div/div/div[3]/div[1]/div[2]/div/div/div[1]/p[1]"))));
             Thread.sleep(3000);
             return true;
         } catch (Exception e) {
@@ -82,7 +82,7 @@ public class Home {
     public Boolean isNoResultFound() {
         Boolean status = false;
         try {
-            status = driver.findElementByXPath("//*[@id=\"root\"]/div/div/div[3]/div[1]/div[2]/div/h4").isDisplayed();
+            status = driver.findElementByXPath("//*[@id='root']/div/div/div[3]/div/div[2]/div/h4").isDisplayed();
             return status;
         } catch (Exception e) {
             return status;
