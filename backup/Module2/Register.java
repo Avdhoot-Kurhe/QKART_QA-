@@ -49,7 +49,6 @@ public class Register {
         // Enter the Password value
         password_txt_box.sendKeys(test_data_password);
 
-        // Find the Confirm password text box
         WebElement confirm_password_txt_box = this.driver.findElement(By.id("confirmPassword"));
 
         // Enter the Confirm Password Value
@@ -59,7 +58,7 @@ public class Register {
         WebElement register_now_button = this.driver.findElement(By.className("button"));
 
         // Click the register now button
-        register_now_button.click();   
+        register_now_button.click();
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -68,8 +67,6 @@ public class Register {
         } catch (TimeoutException e) {
             return false;
         }
-
-        // SLEEP_STMT_06: Wait for new user to get created in the backend
 
         this.lastGeneratedUsername = test_data_username;
 

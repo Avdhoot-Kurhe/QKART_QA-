@@ -46,8 +46,6 @@ public class Login {
         // Click the login Button
         login_button.click();
 
-        // SLEEP_STMT_13: Wait for Login to Complete
-        // Wait for Login action to complete
         FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofMillis(600)).ignoring(NoSuchElementException.class);
         wait.until(ExpectedConditions.invisibilityOf(login_button));

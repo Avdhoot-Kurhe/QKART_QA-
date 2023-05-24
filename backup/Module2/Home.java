@@ -29,8 +29,6 @@ public class Home {
             WebElement logout_button = driver.findElement(By.className("MuiButton-text"));
             logout_button.click();
 
-            // SLEEP_STMT_10: Wait for Logout to complete
-            // Wait for Logout to Complete
             WebDriverWait wait = new WebDriverWait(driver, 30);
             wait.until(ExpectedConditions.invisibilityOfElementWithText(By.className("css-1urhf6j"), "Logout"));
 
@@ -51,10 +49,10 @@ public class Home {
             searchBox.clear();
             searchBox.sendKeys(product);
 
-            WebDriverWait wait = new WebDriverWait(driver,3);
+            WebDriverWait wait = new WebDriverWait(driver,30);
             wait.until(ExpectedConditions.or(ExpectedConditions.textToBePresentInElementLocated(By.className("css-yg30ev6"), product),
             ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/div/div/div[3]/div[1]/div[2]/div/div/div[1]/p[1]"))));
-            // Thread.sleep(3000);
+            Thread.sleep(3000);
             return true;
         } catch (Exception e) {
             System.out.println("Error while searching for a product: " + e.getMessage());
@@ -109,7 +107,7 @@ public class Home {
                 if (productName.contains(cell.findElement(By.className("css-yg30e6")).getText())) {
                     cell.findElement(By.tagName("button")).click();
 
-                    WebDriverWait wait = new WebDriverWait(driver, 5);
+                    WebDriverWait wait = new WebDriverWait(driver, 30);
                     wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
                             String.format("//*[@class='MuiBox-root css-1gjj37g']/div[1][text()='%s']", productName))));
                     return true;
